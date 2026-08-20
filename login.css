@@ -1,0 +1,279 @@
+/* ========================================
+   LOGIN PAGE STYLES
+   ======================================== */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+/* ========================================
+   BASE RESET
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ========================================
+   LAYOUT WRAPPER
+   ======================================== */
+.login-wrapper {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ========================================
+   ANIMATED BACKGROUND BLOBS
+   ======================================== */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    z-index: -1;
+}
+
+body::before {
+    background: #00d2ff;
+    top: 10%;
+    left: 20%;
+    animation: float 6s ease-in-out infinite;
+}
+
+body::after {
+    background: #3a7bd5;
+    bottom: 10%;
+    right: 20%;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, 40px); }
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
+    letter-spacing: 2px;
+}
+
+header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+}
+
+hr {
+    display: none;
+}
+
+/* ========================================
+   FORM CONTAINER (GLASS CARD)
+   ======================================== */
+main {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================
+   FORM ELEMENTS
+   ======================================== */
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+legend {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Form field spacing */
+fieldset p {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+/* ========================================
+   LABELS & INPUTS
+   ======================================== */
+label {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #00d2ff;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+}
+
+/* ========================================
+   HELP TEXT & VALIDATION
+   ======================================== */
+/* Django help text styling */
+.helptext {
+    display: block;
+    margin-top: 8px;
+    padding: 10px 15px;
+    background: rgba(0, 210, 255, 0.1);
+    border-left: 3px solid rgba(0, 210, 255, 0.5);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+/* Style for help text list items */
+.helptext ul {
+    margin: 5px 0 0 0;
+    padding-left: 18px;
+    list-style: none;
+}
+
+.helptext li {
+    position: relative;
+    margin-bottom: 4px;
+    padding-left: 0;
+}
+
+.helptext li::before {
+    content: '•';
+    color: #00d2ff;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Error messages */
+.errorlist {
+    list-style: none;
+    margin: 8px 0 0 0;
+    padding: 10px 15px;
+    background: rgba(255, 82, 82, 0.15);
+    border-left: 3px solid rgba(255, 82, 82, 0.6);
+    border-radius: 8px;
+}
+
+.errorlist li {
+    color: #ffb3b3;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Non-field errors (form-level errors) */
+.errorlist.nonfield {
+    margin-bottom: 15px;
+}
+
+/* ========================================
+   SUBMIT BUTTON
+   ======================================== */
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.7);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ========================================
+   FOOTER LINKS
+   ======================================== */
+fieldset p:last-child {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    color: white;
+}
+
+a {
+    color: #00d2ff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #00d2ff;
+    transition: width 0.3s ease;
+}
+
+a:hover::after {
+    width: 100%;
+}

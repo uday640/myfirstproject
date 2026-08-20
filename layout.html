@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Base CSS - loaded on ALL pages -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    
+    {% block title %}
+    {% endblock %}
+</head>
+<body>
+    <nav>
+        <section class="logo">SecureVault</section>
+        <section class="nav-links">
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'profile' %}">My Profile</a>
+           {%if not user.is_authenticated  %} <a href="{% url 'login' %}">Login</a>
+           {%endif%}
+            <a href="{% url 'upload_file' %}">Upload</a>
+            <a href="{% url 'upload_key' %}">Retrieve</a>
+        </section>
+    </nav>
+    
+    {% block content%}
+    {% endblock %}
+</body>
+</html>

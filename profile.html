@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+{% load static %}
+   {% block title %}
+    <title>My Profile</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  {% endblock %}
+      {% block content%}
+    <!-- Wrapper div to center the glass container without affecting navbar -->
+    <div class="profile-wrapper">
+        <section class="glass-container">
+            
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="profile-header">
+                <div class="profile-pic">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+                <h1>{{ user.get_full_name|default:user.username }}</h1> 
+                <p class="status-text">Authorized User</p>
+            </div>
+
+            <div class="info-section">
+                <div class="info-row">
+                    <span class="label">Username</span>
+                    <span class="value">{{ user.username }}</span>
+                </div>
+            </div>
+
+            {% if user.email %}
+            <div class="info-section">
+                <div class="info-row">
+                    <span class="label">Email Address</span>
+                    <span class="value">{{ user.email }}</span>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="id-card">
+                <p class="id-label">YOUR UNIQUE ID</p>
+                <div class="id-number">{{ user_id|stringformat:"012d" }}</div>
+            </div>
+
+            <div class="action-buttons">
+
+    <form method="get" action="{% url 'edit_profile' %}" style="flex: 1; margin: 0;">
+        <button type="submit" class="btn-edit" style="width: 100%;">
+            Edit Details
+        </button>
+    </form>
+
+    <form method="post" action="{% url 'logout' %}" style="flex: 1; margin: 0;">
+        {% csrf_token %}
+        <button type="submit" class="btn-logout" style="width: 100%;">
+            Log Out
+        </button>
+    </form>
+
+</div>
+
+
+            <a href="{% url 'index' %}" class="back-link">Back to Home</a>
+
+        </section>
+    </div>
+    {% endblock %}

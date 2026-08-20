@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% load static %}
+   {% block title %}
+    <meta name="key" content="Upload the key">
+    <title>Enter Key</title>
+    <link rel="stylesheet" href="{% static 'css/uploadkey.css' %}">
+{% endblock %}
+{% block content%}
+<div class="page-wrapper">
+    <section class="glass-container">
+        
+        <h1>Retrieve Files</h1>
+        <p class="subtitle">Securely access your stored data.</p>
+
+        <div class="instruction-panel">
+            <p class="instruction-title">⚠ How to retrieve your files</p>
+            <ol>
+                <li>Locate the <b>secure key</b> you were given during the upload process.</li>
+                <li>Enter the key exactly as it appeared into the <b>text box below</b>.</li>
+                <li>Click the <b>"Get Files"</b> button.</li>
+                <li>Your original files will be displayed on the next page in the <b>exact format</b> you submitted them.</li>
+            </ol>
+        </div>
+
+        <h2>Enter Your Key</h2>
+
+        <form action="{% url 'get_file' %}" method="POST">
+            {% csrf_token %}
+            <label for="keyInput">Paste your secure key here:</label>
+            <input type="text" id="keyInput" name="accessKey" placeholder="e.g. ABCD-1234-XYZ" required autocomplete="off">
+            <button type="submit">Get Files</button>
+        </form>
+
+    </section>
+</div>
+    {% endblock %}

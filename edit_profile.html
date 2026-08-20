@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+<title>Edit Profile</title>
+<link rel="stylesheet" href="{% static 'css/edit_profile.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="profile-wrapper">
+    <section class="glass-container">
+
+        <!-- HEADER -->
+        <div class="profile-header">
+            <div class="profile-pic">
+                <i class="fa-solid fa-user-edit"></i>
+            </div>
+            <h1>Edit Profile</h1>
+            <p class="status-text">Update Account Settings</p>
+        </div>
+
+        <!-- FORM -->
+        <form method="POST" action="{% url 'edit_profile' %}">
+            {% csrf_token %}
+
+            <!-- USERNAME -->
+            <div class="info-section">
+                <label class="label" for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    class="input-field"
+                    value="{{ user.username }}"
+                    placeholder="Enter new username"
+                    required>
+            </div>
+
+            <!-- PASSWORD CHANGE -->
+            <div class="info-section">
+                <label class="label" for="password">New Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="input-field"
+                    placeholder="Leave blank to keep current password">
+
+                <label class="label" for="confirm_password" style="margin-top:10px;">
+                    Confirm New Password
+                </label>
+                <input
+                    type="password"
+                    id="confirm_password"
+                    name="confirm_password"
+                    class="input-field"
+                    placeholder="Confirm new password">
+
+                <p class="password-note">
+                    Leave password fields empty if you don’t want to change it.
+                </p>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="action-buttons">
+                <a href="{% url 'profile' %}" class="btn-cancel">
+                    Cancel
+                </a>
+                <button type="submit" class="btn-save">
+                    Save Changes
+                </button>
+            </div>
+
+        </form>
+
+    </section>
+</div>
+{% endblock %}

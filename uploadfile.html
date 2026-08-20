@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% load static %}
+   {% block title %}
+    <title>Upload File</title>
+    <link rel="stylesheet" href="{% static 'css/uploadfile.css' %}">
+{% endblock %}
+{% block content%}
+<div class="page-wrapper">
+    <section id="upload-section">
+        
+        <h1>Upload File</h1>
+        <p class="subtitle">Your files are safe with us! Please read the rules below.</p>
+
+        <div class="instruction-panel">
+            <p class="instruction-title">⚠ Important Instructions</p>
+            <ol>
+                <li>Once submitted you will get a <b>KEY</b> immediately.</li>
+                <li>Store your key <b>safely</b>. It is the only way to access your data.</li>
+                <li>If you leave the result page, you <b>CANNOT</b> see the key <b>EVER AGAIN</b>!</li>
+                <li><b>Do not share</b> the key with anyone.</li>
+            </ol>
+        </div>
+
+        <h2>Select File</h2>
+
+        <form action="{% url 'upload_file' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="fileInput">Choose a file from your device:</label>
+            <input type="file" id="fileInput" name="uploadedFile" multiple required>
+            <button type="submit">Secure My File</button>
+        </form>
+
+    </section>
+</div>
+    {% endblock %}
+

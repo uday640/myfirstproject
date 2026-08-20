@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="KEY" content="your key display">
+    <title>Get Key</title>
+    <link rel="stylesheet" href="{% static 'css/getkey.css' %}">
+</head>
+<body>
+
+    <section class="glass-container text-center">
+        
+        <h1>Success!</h1>
+        <p class="subtitle">Your file has been uploaded securely.</p>
+        <div class="instruction-panel">
+            <p class="instruction-title">⚠  Important Instructions</p>
+            <p>
+                Your key is displayed below. This is a <b>very important key</b> that will help you retrieve your files whenever needed.
+            </p>
+            <p style="margin-top: 10px;">
+                Once you exit this page, the key will <b>NEVER be displayed again</b>. Please store this key in a safe place immediately.
+            </p>
+        </div>
+        <h3>Here is your generated key:</h3>
+        <div id="key-container">
+            <strong class="secret-key">{{ key }}</strong>
+        </div>
+        <br>
+        <a href="{% url 'uploadfile' %}" class="back-link">Upload another file</a>
+    </section>
+
+</body>
+</html>

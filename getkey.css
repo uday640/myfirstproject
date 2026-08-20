@@ -1,0 +1,191 @@
+/* 1. ADVANCED RESET & FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-wrapper {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+    color: white;
+}
+
+/* 2. BACKGROUND ANIMATIONS */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(80px);
+    opacity: 0.6;
+}
+
+body::before {
+    background: #00d2ff;
+    top: 5%;
+    left: 15%;
+    animation: float 6s ease-in-out infinite;
+}
+
+body::after {
+    background: #3a7bd5;
+    bottom: 5%;
+    right: 15%;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, 40px); }
+}
+
+/* 3. MAIN GLASS CARD (Used by both pages) */
+.glass-container {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* 4. HEADINGS & TEXT */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
+}
+
+h2, h3 {
+    margin-top: 20px;
+    color: #00d2ff;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* 5. INSTRUCTION PANEL */
+.instruction-panel {
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 4px solid #00d2ff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.instruction-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.instruction-panel b {
+    color: #00d2ff;
+}
+
+/* 6. CUSTOM FILE INPUT (Matches your image) */
+input[type="file"] {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2); /* Dark strip background */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.9); /* "No file chosen" text color */
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* This specifically styles the button inside the input */
+input[type="file"]::file-selector-button {
+    background-color: #f0f0f0; /* Light gray button */
+    color: #333; /* Dark text */
+    border: none;
+    padding: 8px 15px;
+    margin-right: 15px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #ffffff;
+}
+
+/* 7. BUTTONS & LINKS */
+button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+    margin-top: 25px;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.02);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #00d2ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* 8. KEY DISPLAY BOX (Specific to GetKey page) */
+#key-container {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 15px;
+    word-break: break-all; /* Ensures long keys don't break layout */
+}
+
+.secret-key {
+    font-size: 1.8rem;
+    font-family: 'Courier New', Courier, monospace; /* Monospace for keys looks better */
+    color: #00ffaa; /* Greenish success color */
+    letter-spacing: 2px;
+}

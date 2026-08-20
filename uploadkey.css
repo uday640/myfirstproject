@@ -1,0 +1,81 @@
+/* RESET & FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    color: white;
+    min-height: calc(100vh - 73px); /* Subtract approximate navbar height */
+}
+
+/* GLASS CARD */
+.glass-container {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* HEADINGS */
+h1 { font-size: 2.5rem; text-shadow: 0 0 10px rgba(0, 210, 255, 0.7); margin-bottom: 5px; }
+h2 { font-size: 1.5rem; margin-top: 25px; color: #00d2ff; margin-bottom: 15px; }
+.subtitle { color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin-bottom: 20px; }
+
+/* INSTRUCTIONS */
+.instruction-panel {
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 4px solid #00d2ff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+}
+.instruction-title { font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
+.instruction-panel ol { margin-left: 20px; font-size: 0.9rem; line-height: 1.5; color: rgba(255, 255, 255, 0.9); }
+.instruction-panel b { color: #00d2ff; }
+
+/* FORM & INPUTS */
+label { display: block; text-align: left; margin-bottom: 8px; font-weight: 500; }
+
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+    letter-spacing: 1px;
+    outline: none;
+    transition: 0.3s;
+}
+input[type="text"]:focus { background: rgba(255, 255, 255, 0.15); border-color: #00d2ff; box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); }
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+    margin-top: 25px;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+}
+button:hover { transform: scale(1.02); }

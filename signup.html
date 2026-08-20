@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Create new account!</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="content-wrapper">
+        <header>
+            <h1>Welcome!</h1>
+            <p>Create a new Account!</p>
+        </header>
+
+        <main>
+            <form method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Fill details to create account</legend>
+                    {{form}}
+                    <button type="submit">Sign Up</button>
+                    <p style="margin-top: 15px;">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                </fieldset>
+            </form>
+        </main>
+    </div>
+{% endblock %}

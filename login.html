@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% load static %}
+   {% block title %}
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    {% endblock %}
+      {% block content%}
+<div class="login-wrapper">
+
+    <header>
+        <h1>Welcome !!</h1>
+        <p>Please Enter Your Details to Sign in</p>
+    </header>
+
+    <hr>
+
+    <main>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>User Login</legend>
+                {{form}}
+                <button type="submit">Submit</button>
+                
+                <p>New user? <a href="{% url 'signup' %}">Register here</a></p>
+            </fieldset>
+        </form>
+    </main>
+</div>
+    
+    {% endblock %}

@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import key_storage
 
-# Register your models here.
+admin.site.register(key_storage)

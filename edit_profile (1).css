@@ -1,0 +1,163 @@
+/* ===== EDIT PROFILE – GLASS UI ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* PAGE WRAPPER */
+.profile-wrapper {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* BACKGROUND BLOBS (SCOPED – SAFE) */
+.profile-wrapper::before,
+.profile-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.profile-wrapper::before {
+    background: #00d2ff;
+    top: 5%;
+    left: 10%;
+}
+
+.profile-wrapper::after {
+    background: #3a7bd5;
+    bottom: 5%;
+    right: 10%;
+}
+
+/* GLASS CARD */
+.glass-container {
+    width: 100%;
+    max-width: 460px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+    text-align: center;
+}
+
+/* HEADER */
+.profile-pic {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.3);
+    border: 2px solid #00d2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.3rem;
+    color: #00d2ff;
+    margin: 0 auto 15px;
+}
+
+h1 {
+    color: white;
+    font-size: 1.8rem;
+}
+
+.status-text {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 25px;
+}
+
+/* FORM SECTIONS */
+.info-section {
+    background: rgba(0,0,0,0.25);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.label {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+}
+
+/* INPUTS */
+.input-field {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.35);
+    color: white;
+    font-size: 0.9rem;
+}
+
+.input-field::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #00d2ff;
+    box-shadow: 0 0 8px rgba(0,210,255,0.4);
+}
+
+/* BUTTONS */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn-save {
+    flex: 1;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+    color: white;
+}
+
+.btn-save:hover {
+    transform: scale(1.02);
+}
+
+.btn-cancel {
+    flex: 1;
+    padding: 12px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-cancel:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* PASSWORD NOTE */
+.password-note {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 5px;
+}

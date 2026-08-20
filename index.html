@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+<title>SecureVault | Data Privacy</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<header class="hero-section">
+    <h1>Encrypt Once.<br>Recover Reliably.</h1>
+    <p>
+        SecureVault protects your files using <strong>client-side AES encryption</strong>,
+        ensuring your data is secured before it ever leaves your device.
+        <br><br>
+        Instead of storing encryption keys in one place, we split, conceal,
+        and distribute them—so your data stays safe and recoverable even if
+        parts of the system fail.
+    </p>
+</header>
+
+<section id="about" class="info-section">
+    <h2>A Simple, Resilient Security Pipeline</h2>
+
+    <section class="feature-container">
+
+        <section class="feature-box">
+            <h3>1. Local Encryption</h3>
+            <p>
+                Files are encrypted on the user’s device using a unique AES key.
+                The encrypted file can be safely uploaded or stored, while the
+                plaintext data never leaves the device.
+            </p>
+        </section>
+
+        <section class="feature-box">
+            <h3>2. Key Splitting & Concealment</h3>
+            <p>
+                The encryption key is divided using a threshold scheme and each
+                fragment is hidden inside ordinary images using steganography.
+                Individual fragments reveal no useful information on their own.
+            </p>
+        </section>
+
+        <section class="feature-box">
+            <h3>3. Redundant Distribution & Recovery</h3>
+            <p>
+                Concealed key fragments are redundantly distributed across
+                multiple cloud locations. Even if some images are deleted or
+                become unavailable, the key can still be reconstructed securely.
+            </p>
+        </section>
+
+    </section>
+</section>
+
+<section class="action-section">
+    <h2>Secure Your Files with Confidence</h2>
+    <p>
+        Upload encrypted files or recover your data using distributed key fragments.
+    </p>
+
+    <section class="cta-container">
+        <a href="{% url 'upload_file' %}" class="btn-primary">
+            Get Started (Upload)
+        </a>
+        <a href="{% url 'upload_key' %}" class="btn-secondary">
+            Retrieve Data
+        </a>
+    </section>
+</section>
+
+<footer>
+    <p>&copy; 2026 SecureVault Project. All Rights Reserved.</p>
+</footer>
+
+{% endblock %}

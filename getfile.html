@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% load static %}
+   {% block title %}
+    <meta name="File" content="Secured file">
+    <title>Your Files</title>
+    <link rel="stylesheet" href="{% static 'css/getfile.css' %}">
+    {% endblock %}
+      {% block content%}
+      <div class="page-wrapper">
+    <section class="glass-container">
+        
+        <h1>Files Found!</h1>
+        <p class="subtitle">We successfully retrieved your data using the key provided.</p>
+
+        <div class="instruction-panel">
+            <p class="instruction-title">✔ Download Ready</p>
+            <p>
+                Below are the files associated with your key. You can download them individually. 
+                These are the <b>original files</b> in the format you submitted.
+            </p>
+        </div>
+        
+        <h3>Available Files:</h3>
+
+        <div class="file-list">
+            
+            <div class="file-item">
+                <a href="{% url 'download' %}" class="download-btn">Download</a>
+            </div>
+             
+        </div>
+
+        <br>
+        <a href="{% url 'upload_key' %}" class="back-link">Retrieve a different file</a>
+
+    </section>
+
+</div>
+{% endblock %}
